@@ -6,80 +6,85 @@
 #    By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 23:36:03 by bmarilli          #+#    #+#              #
-#    Updated: 2020/11/04 22:12:55 by bmarilli         ###   ########.fr        #
+#    Updated: 2020/11/15 20:58:52 by bmarilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME	= libft.a
 
-CC = gcc
+CC		= gcc
+
+AR		= ar rc 
+
+DIR		= ./SRC/
+
+HEADER	= ./
+
+FLAGS	= -Wall -Wextra -Werror 
+
+SRCS	= $(DIR)ft_bzero.c 		$(DIR)ft_isalnum.c 	$(DIR)ft_calloc.c \
+		  $(DIR)ft_isascii.c  	$(DIR)ft_isdigit.c 	$(DIR)ft_isalpha.c \
+		  $(DIR)ft_atoi.c 		$(DIR)ft_isprint.c 	$(DIR)ft_memcmp.c \
+		  $(DIR)ft_memset.c  	$(DIR)ft_memchr.c 	$(DIR)ft_tolower.c \
+		  $(DIR)ft_memcpy.c  	$(DIR)ft_strlen.c 	$(DIR)ft_memccpy.c \
+		  $(DIR)ft_strchr.c  	$(DIR)ft_strdup.c  	$(DIR)ft_memmove.c \
+		  $(DIR)ft_toupper.c  	$(DIR)ft_strlcat.c  $(DIR)ft_strlcpy.c \
+		  $(DIR)ft_strnstr.c 	$(DIR)ft_strrchr.c  $(DIR)ft_strncmp.c \
+		  $(DIR)ft_substr.c 	$(DIR)ft_strjoin.c 	$(DIR)ft_strtrim.c \
+		  $(DIR)ft_split.c 		$(DIR)ft_itoa.c 	$(DIR)ft_strmapi.c \
+		  $(DIR)ft_putchar_fd.c $(DIR)ft_putstr_fd.c $(DIR)ft_putendl_fd.c \
+		  $(DIR)ft_putnbr_fd.c
+
+SRCBNS 	= 	$(DIR)ft_lstnew.c 	$(DIR)ft_lstadd_front.c $(DIR)ft_lstsize.c \
+			$(DIR)ft_lstlast.c 	$(DIR)ft_lstadd_back.c
+
+F_NONE		= \033[37m
+F_BOLD		= \033[1m
+F_RED		= \033[31m
+F_ORANGE	= \033[38m
+F_YELLOW	= \033[33m
+F_GREEN		= \033[32m
+F_CYAN		= \033[36m
+F_BLUE		= \033[34m 
+
+OBJS	= $(SRCS:.c=.o)
+OBJBNS 	= $(SRCBNS:.c=.o)
+
+.c.o:
+	$(CC) $(FLAGS) -c -I$(HEADER) $< -o $(<:.c=.o)
 
 
-SRC =    ft_strdup.c 		ft_bzero.c 			ft_isalpha.c  	ft_isdigit.c  \
-		   ft_memccpy.c  		ft_memcmp.c   		ft_memmove.c  	ft_strchr.c   \
-   		ft_strlcpy.c  		ft_strncmp.c  		ft_strrchr.c  	ft_toupper.c  \
-   		ft_atoi.c     		ft_isalnum.c  		ft_isascii.c  	ft_isprint.c  \
-   		ft_memchr.c   		ft_memcpy.c   		ft_memset.c   	ft_strlcat.c  \
-   		ft_strlen.c   		ft_strnstr.c  		ft_tolower.c 	ft_calloc.c   \
-   		ft_strdup.c 		ft_substr.c 		ft_strjoin.c 	ft_strtrim.c  \
-   		ft_split.c 			ft_itoa.c 			ft_strmapi.c   	ft_putchar_fd.c\
-   		ft_putstr_fd.c 	ft_putendl_fd.c 	ft_putnbr_fd.c
+all:	$(NAME)
 
-BONSRC =   ft_lstnew.c \
-         ft_lstadd_front.c    ft_lstadd_front.c    ft_lstadd_back.c ft_lstsize.c\
-         ft_lstlast.c         ft_lstdelone.c       ft_lstclear.c  ft_lstiter.c\
-         ft_lstmap.c
+$(NAME):	$(OBJS)
+		$(AR) $(NAME) $(OBJS)
 
-F_NONE			= \033[37m
-F_BOLD			= \033[1m
-F_RED			= \033[31m
-F_ORANGE		= \033[38m
-F_YELLOW		= \033[33m
-F_GREEN			= \033[32m
-F_CYAN			= \033[36m
-F_BLUE			= \033[34m 
-
-OBJ = $(SRC:.c=.o)
-
-BONUS_OBJ = $(BONSRC:.c=.o)
-
-FLAGS = -Wall -Wextra -Werror -c
-
-%.o: %.c
-	$(CC) $(FLAGS) $< -o $@
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-	ranlib $(NAME)
-
-bonus: $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ)
+bonus:		$(OBJBNS) $(OBJS)
+			$(AR) $(NAME) $(OBJS) $(OBJBNS)
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
-	@echo "$(F_GREEN)Cleaned! $(F_NONE)"
+		$(RM) $(OBJS) $(OBJBNS)
+		@echo "$(F_GREEN)Cleaned! $(F_NONE)"
 
-fclean: clean
-	rm -f $(NAME)
-	@echo "$(F_ORANGE)FCleaned! $(F_NONE)"
+fclean:		clean
+			$(RM) $(NAME)
+			@echo "$(F_ORANGE)FCleaned! $(F_NONE)"
 
-re: fclean all
+re:	fclean all
 
 norm:
 	norminette *.c *.h
-love:
+
+code:
 	@echo " ~~~~~~~~~~~~~~~~"
-	@echo "$(F_BOLD)  * Make love, *"
+	@echo "$(F_BOLD)  * Make code, *"
 	@echo "$(F_BOLD)   * not war! *"
-	@echo "$(F_RED)    ..eeeee.."
-	@echo "$(F_ORANGE)  e8\"   8   \"8e"
-	@echo "$(F_YELLOW) d8     8     8b"
-	@echo "$(F_GREEN) 8!   .dWb.   !8"
-	@echo "$(F_CYAN) Y8 .e* 8 *e. 8P"
-	@echo "$(F_BLUE) *8*   8   *8*"
-	@echo "$(F_BLUE)   **ee8ee**$(F_NONE)"
+	@echo "$(F_RED)    ..10101.."
+	@echo "$(F_ORANGE)  01   1   011"
+	@echo "$(F_YELLOW) 10     0     00"
+	@echo "$(F_GREEN) 11   .010.   11"
+	@echo "$(F_CYAN) 00 .01 1 01. 10"
+	@echo "$(F_BLUE) 010   1   110"
+	@echo "$(F_BLUE)   11011010**$(F_NONE)"
 
-
-.PHONY: clean fclean
+.PHONY:     all clean fclean re bonus code
