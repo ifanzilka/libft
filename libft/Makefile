@@ -6,7 +6,7 @@
 #    By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 23:36:03 by bmarilli          #+#    #+#              #
-#    Updated: 2020/11/15 20:58:52 by bmarilli         ###   ########.fr        #
+#    Updated: 2020/11/15 21:03:03 by bmarilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ AR		= ar rc
 
 DIR		= ./SRC/
 
-HEADER	= ./
+HEADER	= ./includes
 
 FLAGS	= -Wall -Wextra -Werror 
 
