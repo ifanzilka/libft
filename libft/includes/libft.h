@@ -6,7 +6,7 @@
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:51:44 by bmarilli          #+#    #+#             */
-/*   Updated: 2020/11/02 01:06:05 by bmarilli         ###   ########.fr       */
+/*   Updated: 2020/11/26 21:20:25 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,23 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
+void				ft_memdel(void **ap);
+void				*ft_memalloc(size_t size);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+int					ft_print_n_char(int num, char c, int fd);
 size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
+size_t				ft_intlen(long long n);
+char				*ft_strnew(size_t size);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *big, const char *little,
 					size_t len);
+char				*ft_create_str(char c, int n);
+int					ft_add_forward(char **str, char c, int n);
+int					ft_add_back(char **str, char c, int n);
+void				ft_strdel(char **as);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
 int					ft_isalpha(int c);
@@ -40,6 +49,7 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isspace(int c);
+int					ft_pow(int a, int n);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
@@ -47,6 +57,13 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_strdup(const char *s1);
 char				*ft_itoa(int n);
+char				*ft_itoa_ll(long long int n);
+char				*ft_itoa_unsigned_ll(unsigned long long n);
+char				*ft_itoa_with_zero(int n, int count_zero);
+char				*ft_itoa_unsig_base(unsigned long long value, int base,
+		int num, int reg);
+char				*ft_itoa_base(unsigned long long int value,
+		int base, char c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);

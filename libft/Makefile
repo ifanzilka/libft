@@ -6,7 +6,7 @@
 #    By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 23:36:03 by bmarilli          #+#    #+#              #
-#    Updated: 2020/11/15 21:03:03 by bmarilli         ###   ########.fr        #
+#    Updated: 2020/11/26 21:21:10 by bmarilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,13 @@ SRCS	= $(DIR)ft_bzero.c 		$(DIR)ft_isalnum.c 	$(DIR)ft_calloc.c \
 		  $(DIR)ft_substr.c 	$(DIR)ft_strjoin.c 	$(DIR)ft_strtrim.c \
 		  $(DIR)ft_split.c 		$(DIR)ft_itoa.c 	$(DIR)ft_strmapi.c \
 		  $(DIR)ft_putchar_fd.c $(DIR)ft_putstr_fd.c $(DIR)ft_putendl_fd.c \
-		  $(DIR)ft_putnbr_fd.c
+		  $(DIR)ft_putnbr_fd.c 	$(DIR)ft_intlen.c	$(DIR)ft_pow.c\
+		  $(DIR)ft_print_n_char.c $(DIR)ft_memdel.c $(DIR)ft_memalloc.c\
+		  $(DIR)ft_strnew.c		$(DIR)ft_itoa_with_zero.c\
+		  $(DIR)ft_itoa_unsig_base.c 				$(DIR)ft_strdel.c\
+		  $(DIR)ft_create_str.c $(DIR)ft_add_forward.c\
+		  $(DIR)ft_add_back.c	$(DIR)ft_itoa_ll.c\
+		  $(DIR)ft_itoa_unsigned_ll.c $(DIR)ft_itoa_base_x.c
 
 SRCBNS 	= 	$(DIR)ft_lstnew.c 	$(DIR)ft_lstadd_front.c $(DIR)ft_lstsize.c \
 			$(DIR)ft_lstlast.c 	$(DIR)ft_lstadd_back.c
