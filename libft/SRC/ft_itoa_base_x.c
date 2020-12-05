@@ -6,7 +6,7 @@
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 21:13:01 by bmarilli          #+#    #+#             */
-/*   Updated: 2020/11/26 21:21:57 by bmarilli         ###   ########.fr       */
+/*   Updated: 2020/12/05 15:46:18 by ifanzilka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,6 @@ char			*ft_itoa_base(unsigned long long int value, int base,
 
 	val = value;
 	n = 0;
-	if (val < 0)
-	{
-		val *= -1;
-		if (base == 10)
-			n = 1;
-	}
 	i = 0;
 	if (val == 0)
 		return (ft_strdup("0"));

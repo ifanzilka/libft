@@ -6,7 +6,7 @@
 #    By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 23:36:03 by bmarilli          #+#    #+#              #
-#    Updated: 2020/11/26 21:21:10 by bmarilli         ###   ########.fr        #
+#    Updated: 2020/12/05 15:45:22 by ifanzilka        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,9 @@ SRCS	= $(DIR)ft_bzero.c 		$(DIR)ft_isalnum.c 	$(DIR)ft_calloc.c \
 		  $(DIR)ft_itoa_unsig_base.c 				$(DIR)ft_strdel.c\
 		  $(DIR)ft_create_str.c $(DIR)ft_add_forward.c\
 		  $(DIR)ft_add_back.c	$(DIR)ft_itoa_ll.c\
-		  $(DIR)ft_itoa_unsigned_ll.c $(DIR)ft_itoa_base_x.c
-
-SRCBNS 	= 	$(DIR)ft_lstnew.c 	$(DIR)ft_lstadd_front.c $(DIR)ft_lstsize.c \
-			$(DIR)ft_lstlast.c 	$(DIR)ft_lstadd_back.c
+		  $(DIR)ft_itoa_unsigned_ll.c $(DIR)ft_itoa_base_x.c \
+		  $(DIR)ft_lstnew.c		$(DIR)ft_lstadd_front.c $(DIR)ft_lstsize.c \
+		  $(DIR)ft_lstlast.c		$(DIR)ft_lstadd_back.c
 
 F_NONE		= \033[37m
 F_BOLD		= \033[1m
@@ -54,7 +53,7 @@ F_CYAN		= \033[36m
 F_BLUE		= \033[34m 
 
 OBJS	= $(SRCS:.c=.o)
-OBJBNS 	= $(SRCBNS:.c=.o)
+
 
 .c.o:
 	$(CC) $(FLAGS) -c -I$(HEADER) $< -o $(<:.c=.o)
@@ -64,9 +63,6 @@ all:	$(NAME)
 
 $(NAME):	$(OBJS)
 		$(AR) $(NAME) $(OBJS)
-
-bonus:		$(OBJBNS) $(OBJS)
-			$(AR) $(NAME) $(OBJS) $(OBJBNS)
 
 clean:
 		$(RM) $(OBJS) $(OBJBNS)
