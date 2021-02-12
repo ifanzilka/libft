@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_l_lstlast.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 23:00:05 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/01/31 19:19:35 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/01/27 18:01:24 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/01/31 18:46:29 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 /*
 ** RUS
 **
-** Добавляет элемент "new’ в начало
-** списка.
+** Возвращаем последний элемент списка
 */
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_l_list	*ft_l_lstlast(t_l_list *lst)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

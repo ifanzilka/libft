@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_l_lsnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 23:00:05 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/01/31 19:19:35 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/01/27 13:54:58 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/01/31 18:32:20 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** ENG
-*/
-
-/*
-** RUS
-**
-** Добавляет элемент "new’ в начало
-** списка.
-*/
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_l_list	*ft_l_lsnew(void *content)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	t_l_list *lst;
+
+	lst = (t_l_list*)malloc(sizeof(t_l_list));
+	if (!lst)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	lst->prev = NULL;
+	return (lst);
 }

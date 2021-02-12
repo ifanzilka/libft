@@ -6,13 +6,14 @@
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:51:44 by bmarilli          #+#    #+#             */
-/*   Updated: 2020/11/26 21:20:25 by bmarilli         ###   ########.fr       */
+/*   Updated: 2021/02/02 23:12:50 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
+# define M_ADD 1
+# define M_REMOVE 0
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -41,6 +42,8 @@ int					ft_add_back(char **str, char c, int n);
 void				ft_strdel(char **as);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
+double				ft_atof(char *str);
+void				ft_skip_atof(char *str, int *j);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -69,6 +72,10 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_garbage_collector(void *ptr, int action);
+void				*calloc_gc(size_t nmemb, size_t size);
+void				*malloc_gc(size_t sizemem);
+void				free_gc(void *ptr);
 
 /*
 ** List
@@ -86,9 +93,35 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
+void				ft_lstdelel(t_list **lst, void *content, int (*cmp)(void *,
+						void *), void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+t_list				*ft_lst_cr_front(t_list **lst, void *content);
+t_list				*ft_lst_cr_back(t_list **lst, void *content);
+
+/*
+** Two List
+*/
+
+typedef struct		s_l_list
+{
+	void			*content;
+	struct s_l_list	*next;
+	struct s_l_list	*prev;
+}					t_l_list;
+
+t_l_list			*ft_l_lsnew(void *content);
+void				ft_l_lstadd_front(t_l_list **lst, t_l_list *new);
+void				ft_l_lstadd_back(t_l_list **lst, t_l_list *new);
+void				ft_l_lstclear(t_l_list **lst, void (*del)(void*));
+void				ft_l_lstdelone(t_l_list *lst, void (*del)(void*));
+void				ft_l_lstiter(t_l_list *lst, void (*f)(void *));
+t_l_list			*ft_l_lstlast(t_l_list *lst);
+int					ft_l_lstsize(t_l_list *lst);
+t_l_list			*ft_l_lst_cr_front(t_l_list **lst, void *content);
+t_l_list			*ft_l_lst_cr_back(t_l_list **lst, void *content);
 
 #endif

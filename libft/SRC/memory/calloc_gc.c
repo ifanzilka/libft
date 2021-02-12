@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   calloc_gc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 23:00:05 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/01/31 19:19:35 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/02/02 20:54:08 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/02/02 23:07:10 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** ENG
-*/
-
-/*
-** RUS
-**
-** Добавляет элемент "new’ в начало
-** списка.
-*/
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	*calloc_gc(size_t nmemb, size_t size)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	void	*pointer;
+
+	pointer = ft_calloc(nmemb, size);
+	ft_garbage_collector(pointer, M_ADD);
+	return (pointer);
 }
