@@ -27,7 +27,7 @@
 ** Память о "следующем" не должна быть освобождена.
 */
 
-void	ft_lstdelone(t_l_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (!lst || !del)
 		return ;

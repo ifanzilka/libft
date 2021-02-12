@@ -16,7 +16,8 @@ CC		= gcc
 
 AR		= ar rc 
 
-DIR		= ./SRC/
+DIR		= SRC/
+OBJ_DIR = ./BIN/
 
 HEADER	= ./includes
 
@@ -24,39 +25,51 @@ FLAGS	= -Wall -Wextra -Werror
 
 DIR_MEMORY = ./SRC/memory/
 
-SRCS	= $(DIR)ft_bzero.c 		$(DIR)ft_isalnum.c 	$(DIR)ft_calloc.c \
-		  $(DIR)ft_isascii.c  	$(DIR)ft_isdigit.c 	$(DIR)ft_isalpha.c \
-		  $(DIR)ft_atoi.c 		$(DIR)ft_isprint.c 	$(DIR)ft_isspace.c\
-		  $(DIR)ft_memcmp.c \
-		  $(DIR)ft_memset.c  	$(DIR)ft_memchr.c 	$(DIR)ft_tolower.c \
-		  $(DIR)ft_memcpy.c  	$(DIR)ft_strlen.c 	$(DIR)ft_memccpy.c \
-		  $(DIR)ft_strchr.c  	$(DIR)ft_strdup.c  	$(DIR)ft_memmove.c \
-		  $(DIR)ft_toupper.c  	$(DIR)ft_strlcat.c  $(DIR)ft_strlcpy.c \
-		  $(DIR)ft_strnstr.c 	$(DIR)ft_strrchr.c  $(DIR)ft_strncmp.c \
-		  $(DIR)ft_substr.c 	$(DIR)ft_strjoin.c 	$(DIR)ft_strtrim.c \
-		  $(DIR)ft_split.c 		$(DIR)ft_itoa.c 	$(DIR)ft_strmapi.c \
-		  $(DIR)ft_putchar_fd.c $(DIR)ft_putstr_fd.c $(DIR)ft_putendl_fd.c \
-		  $(DIR)ft_putnbr_fd.c 	$(DIR)ft_intlen.c	$(DIR)ft_pow.c\
-		  $(DIR)ft_print_n_char.c $(DIR)ft_memdel.c $(DIR)ft_memalloc.c\
-		  $(DIR)ft_strnew.c		$(DIR)ft_itoa_with_zero.c\
-		  $(DIR)ft_itoa_unsig_base.c 				$(DIR)ft_strdel.c\
-		  $(DIR)ft_create_str.c $(DIR)ft_add_forward.c\
-		  $(DIR)ft_add_back.c	$(DIR)ft_itoa_ll.c\
-		  $(DIR)ft_atof.c\
-		  $(DIR)ft_itoa_unsigned_ll.c $(DIR)ft_itoa_base_x.c \
-		  $(DIR)ft_lstnew.c		$(DIR)ft_lstadd_front.c $(DIR)ft_lstsize.c \
-		  $(DIR)ft_lstlast.c		$(DIR)ft_lstadd_back.c\
-		  $(DIR)ft_l_lsnew.c	$(DIR)ft_l_lstadd_front.c	$(DIR)ft_l_lstadd_back.c\
-		  $(DIR)ft_l_lstclear.c	$(DIR)ft_l_lstdelone.c	$(DIR)ft_l_lstiter.c\
-		  $(DIR)ft_l_lstlast.c $(DIR)ft_l_lstsize.c\
-		  $(DIR)ft_lstiter.c 	$(DIR)ft_lstclear.c\
-		  $(DIR)ft_lst_cr_front.c \
-		  $(DIR)ft_l_lst_cr_back.c $(DIR)ft_l_lst_cr_front.c \
-		  $(DIR)ft_lstdelel.c \
-		  $(DIR_MEMORY)ft_garbage_collector.c \
-		  $(DIR_MEMORY)calloc_gc.c $(DIR_MEMORY)free_gc.c \
-		  $(DIR_MEMORY)malloc_gc.c
-		  
+MEM_DIR = $(addprefix $(DIR),mem/)
+SRC_MEM = $(addprefix $(MEM_DIR), ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_bzero.c ft_calloc.c)
+
+
+IS_DIR = $(addprefix $(DIR),is/)
+SRC_IS = $(addprefix $(IS_DIR), ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c ft_isprint.c)
+
+TO_DIR = $(addprefix $(DIR),to/)
+SRC_TO = $(addprefix $(TO_DIR), ft_tolower.c ft_toupper.c)
+
+STR_DIR = $(addprefix $(DIR),str/)
+SRC_STR = $(addprefix $(STR_DIR), ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strnstr.c ft_strrchr.c ft_strncmp.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_substr.c ft_split.c ft_strdup.c ft_strnew.c ft_strdel.c ft_create_str.c ft_add_forward.c ft_add_back.c)
+
+PUT_DIR = $(addprefix $(DIR),put/)
+SRC_PUT = $(addprefix $(PUT_DIR), ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_print_n_char.c)
+
+NBR_DIR =  $(addprefix $(DIR),numbers/)
+SRC_NBR= $(addprefix $(NBR_DIR), ft_atoi.c ft_itoa.c ft_atof.c ft_itoa_base_x.c ft_itoa_ll.c ft_itoa_unsig_base.c ft_itoa_unsigned_ll.c ft_itoa_with_zero.c ft_pow.c)
+
+LIST_DIR = $(addprefix $(DIR),list/)
+SRC_LIST = $(addprefix $(LIST_DIR), ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstiter.c ft_lstclear.c ft_lst_cr_front.c ft_lst_cr_back.c ft_lstdelel.c ft_lstdelone.c ft_lstmap.c) 
+
+L_LIST_DIR = $(addprefix $(DIR),l_list/)
+SRC_L_LIST = $(addprefix $(L_LIST_DIR), ft_l_lsnew.c        ft_l_lst_cr_front.c ft_l_lstadd_front.c ft_l_lstdelone.c    ft_l_lstlast.c ft_l_lst_cr_back.c  ft_l_lstadd_back.c  ft_l_lstclear.c     ft_l_lstiter.c      ft_l_lstsize.c) 
+
+MEMORY_DIR = $(addprefix $(DIR),memory/)
+SRC_MEMORY = $(addprefix $(MEMORY_DIR), calloc_gc.c            free_gc.c              ft_garbage_collector.c malloc_gc.c) 
+
+GNL_DIR = $(addprefix $(DIR),gnl/)
+SRC_GNL = $(addprefix $(GNL_DIR), get_next_line.c) 
+
+SRCS	= 	$(SRC_MEM)	\
+			$(SRC_IS) 	\
+			$(SRC_TO)	\
+			$(SRC_STR)	\
+			$(SRC_PUT)	\
+			$(SRC_NBR)	\
+			$(SRC_LIST)	\
+			$(SRC_L_LIST)\
+			$(SRC_GNL)	\
+			$(SRC_MEMORY)
+
+
+
+#OBJS = $(addprefix $(OBJ_DIR), $(SRCS:=.o))		  
 
 F_NONE		= \033[37m
 F_BOLD		= \033[1m
@@ -80,7 +93,6 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 		$(AR) $(NAME) $(OBJS)
 		@echo "$(F_YELLOW)libft.a COMPILE! $(F_NONE)"
-
 
 clean:
 		$(RM) $(OBJS) $(OBJBNS)

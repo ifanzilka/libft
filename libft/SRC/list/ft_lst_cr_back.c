@@ -30,4 +30,5 @@ t_list	*ft_lst_cr_back(t_list **lst, void *content)
 			cur = cur->next;
 		cur->next = new;
 	}
+	return (new);
 }
