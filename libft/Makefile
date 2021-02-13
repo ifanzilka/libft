@@ -17,9 +17,10 @@ CC		= gcc
 AR		= ar rc 
 
 DIR		= SRC/
-OBJ_DIR = ./BIN/
+OBJ_DIR = BIN/
 
 HEADER	= ./includes
+HEAD = includes/libft.h
 
 FLAGS	= -Wall -Wextra -Werror #-D BUFFER_SIZE=32  
 
@@ -67,9 +68,8 @@ SRCS	= 	$(SRC_MEM)	\
 			$(SRC_GNL)	\
 			$(SRC_MEMORY)
 
+SRCS.O = $(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 
-
-#OBJS = $(addprefix $(OBJ_DIR), $(SRCS:=.o))		  
 
 F_NONE		= \033[37m
 F_BOLD		= \033[1m
@@ -83,19 +83,31 @@ F_BLUE		= \033[34m
 OBJS	= $(SRCS:.c=.o)
 
 
-.c.o:
-	$(CC) $(FLAGS) -c -I$(HEADER) $< -o $(<:.c=.o)
+
+
+
+all: $(OBJ_DIR)	$(NAME)
+
+$(NAME):	$(SRCS.O)
+		$(AR) $(NAME) $(SRCS.O)
+		@echo "$(F_YELLOW)libft.a COMPILE! $(F_NONE)"
+
+$(OBJ_DIR):
+		mkdir $(OBJ_DIR)
+		mkdir  $(addprefix $(OBJ_DIR),$(DIR))
+		mkdir $(addprefix	$(OBJ_DIR), $(MEM_DIR) $(IS_DIR) $(TO_DIR) $(STR_DIR) $(PUT_DIR) \
+						$(NBR_DIR) $(LIST_DIR) $(L_LIST_DIR) $(GNL_DIR) $(MEMORY_DIR))
+$(SRCS.O): $(OBJ_DIR)%.o:%.c 
+	$(CC) $(FLAGS) -I$(HEADER) -c $< -o $@
 	@echo "$(F_BLUE)Object files libft in ready! $(F_NONE)"
 
-
-all:	$(NAME)
-
-$(NAME):	$(OBJS)
-		$(AR) $(NAME) $(OBJS)
-		@echo "$(F_YELLOW)libft.a COMPILE! $(F_NONE)"
+# .c.o:
+# 	$(CC) $(FLAGS) -c -I$(HEADER) $< -o $(<:.c=.o)
+# 	@echo "$(F_BLUE)Object files libft in ready! $(F_NONE)"
 
 clean:
 		$(RM) $(OBJS) $(OBJBNS)
+		rm -rf $(OBJ_DIR)
 		@echo "$(F_GREEN)Cleaned! $(F_NONE)"
 
 fclean:		clean
