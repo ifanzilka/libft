@@ -43,7 +43,7 @@ PUT_DIR = $(addprefix $(DIR),put/)
 SRC_PUT = $(addprefix $(PUT_DIR), ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_print_n_char.c)
 
 NBR_DIR =  $(addprefix $(DIR),numbers/)
-SRC_NBR= $(addprefix $(NBR_DIR), ft_atoi.c ft_itoa.c ft_atof.c ft_itoa_base_x.c ft_itoa_ll.c ft_itoa_unsig_base.c ft_itoa_unsigned_ll.c ft_itoa_with_zero.c ft_pow.c)
+SRC_NBR= $(addprefix $(NBR_DIR), ft_atoi.c ft_itoa.c ft_atof.c ft_itoa_base_x.c ft_itoa_ll.c ft_itoa_unsig_base.c ft_itoa_unsigned_ll.c ft_itoa_with_zero.c ft_pow.c ft_atoi_base.c)
 
 LIST_DIR = $(addprefix $(DIR),list/)
 SRC_LIST = $(addprefix $(LIST_DIR), ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstiter.c ft_lstclear.c ft_lst_cr_front.c ft_lst_cr_back.c ft_lstdelel.c ft_lstdelone.c ft_lstmap.c) 
