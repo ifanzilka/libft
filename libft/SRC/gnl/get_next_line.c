@@ -6,13 +6,15 @@
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 15:33:37 by bmarilli          #+#    #+#             */
-/*   Updated: 2020/11/10 15:53:59 by bmarilli         ###   ########.fr       */
+/*   Updated: 2021/02/13 14:04:56 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "get_next_line.h"
-#define BUFFER_SIZE 1000 
+#ifndef BUFFER_SIZE 
+# define BUFFER_SIZE 1000
+#endif
 
 /*
 ** # 1 parameter: file descriptor to read

@@ -6,7 +6,7 @@
 #    By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 23:36:03 by bmarilli          #+#    #+#              #
-#    Updated: 2020/12/11 18:39:20 by bmarilli         ###   ########.fr        #
+#    Updated: 2021/02/13 14:06:26 by bmarilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ_DIR = ./BIN/
 
 HEADER	= ./includes
 
-FLAGS	= -Wall -Wextra -Werror 
+FLAGS	= -Wall -Wextra -Werror #-D BUFFER_SIZE=32  
 
 DIR_MEMORY = ./SRC/memory/
 
