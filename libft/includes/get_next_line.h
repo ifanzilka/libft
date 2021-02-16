@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/10 15:52:32 by bmarilli          #+#    #+#             */
-/*   Updated: 2020/11/10 15:52:41 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/02/16 22:23:39 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/02/16 22:23:40 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 int		get_next_line(int fd, char **line);
 #endif

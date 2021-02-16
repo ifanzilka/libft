@@ -64,29 +64,27 @@ int			ft_atoi_base(char *str, char *base)
 {
 	unsigned	res;
 	unsigned	last_res;
-	int			i;
 	int			sign;
 	int			base_len;
 
 	base_len = ft_strlen(base);
-	i = 0;
 	res = 0;
 	sign = 1;
 	if (base == NULL || ft_strlen(base) == 0 || ft_check_base(base) == 1)
 		return (0);
-	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
+	while ((9 <= *str && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-')
 		sign = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (ft_is_base(str[i], base))
+	if (*str == '-' || *str == '+')
+		str++;
+	while (ft_is_base(*str, base))
 	{
 		last_res = res;
-		res = res * base_len + ft_num_is_base(str[i], base);
+		res = res * base_len + ft_num_is_base(*str, base);
 		if (last_res > res)
 			return (sign > 0 ? -1 : 0);
-		i++;
+		str++;
 	}
 	return (res * sign);
 }
