@@ -19,8 +19,10 @@ AR		= ar rc
 DIR		= SRC/
 OBJ_DIR = BIN/
 
+
 HEADER	= ./includes
 HEAD = includes/libft.h
+HEADERS = $(addprefix $(HEADER)/,libft.h get_next_line.h)
 
 FLAGS	= -Wall -Wextra -Werror #-D BUFFER_SIZE=32  
 
@@ -88,7 +90,7 @@ OBJS	= $(SRCS:.c=.o)
 
 all: $(OBJ_DIR)	$(NAME)
 
-$(NAME):	$(SRCS.O)
+$(NAME):	$(SRCS.O) $(HEADERS)
 		$(AR) $(NAME) $(SRCS.O)
 		@echo "$(F_YELLOW)libft.a COMPILE! $(F_NONE)"
 
