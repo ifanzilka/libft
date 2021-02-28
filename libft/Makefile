@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/10/29 23:36:03 by bmarilli          #+#    #+#              #
-#    Updated: 2021/02/13 14:06:26 by bmarilli         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME	= libft.a
 
 CC		= gcc
@@ -85,13 +73,11 @@ F_BLUE		= \033[34m
 OBJS	= $(SRCS:.c=.o)
 
 
-
-
-
 all: $(OBJ_DIR)	$(NAME)
 
 $(NAME):	$(SRCS.O) $(HEADERS)
 		$(AR) $(NAME) $(SRCS.O)
+		#gcc -shared -o $(NAME) $(SRCS.O)
 		@echo "$(F_YELLOW)libft.a COMPILE! $(F_NONE)"
 
 $(OBJ_DIR):
@@ -100,7 +86,7 @@ $(OBJ_DIR):
 		mkdir $(addprefix	$(OBJ_DIR), $(MEM_DIR) $(IS_DIR) $(TO_DIR) $(STR_DIR) $(PUT_DIR) \
 						$(NBR_DIR) $(LIST_DIR) $(L_LIST_DIR) $(GNL_DIR) $(MEMORY_DIR))
 $(SRCS.O): $(OBJ_DIR)%.o:%.c 
-	$(CC) $(FLAGS) -I$(HEADER) -c $< -o $@
+	$(CC) -fPIC $(FLAGS) -I$(HEADER) -c $< -o $@
 	@echo "$(F_BLUE)Object files libft in ready! $(F_NONE)"
 
 # .c.o:
@@ -110,11 +96,11 @@ $(SRCS.O): $(OBJ_DIR)%.o:%.c
 clean:
 		$(RM) $(OBJS) $(OBJBNS)
 		rm -rf $(OBJ_DIR)
-		@echo "$(F_GREEN)Cleaned! $(F_NONE)"
+		@echo "$(F_GREEN)Object files libft delete! $(F_NONE)"
 
 fclean:		clean
 			$(RM) $(NAME)
-			@echo "$(F_GREEN)FCleaned! $(F_NONE)"
+			@echo "$(F_GREEN)Delete $(NAME) FCleaned! $(F_NONE)"
 
 re:	fclean all
 
