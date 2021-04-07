@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_print_arr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 22:23:39 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/02/20 14:08:54 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/03/20 13:58:46 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/03/20 13:58:48 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-int		get_next_line(int fd, char **line);
-#endif
+void	ft_print_arr(char **arr)
+{
+	int i;
+
+	i = 0;
+	while (arr[i])
+	{
+		ft_putstr_fd(arr[i], 1);
+		write(1, "\n", 1);
+		i++;
+	}
+}

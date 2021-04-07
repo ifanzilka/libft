@@ -1,17 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_find_key.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 22:23:39 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/02/20 14:08:54 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/03/16 00:45:35 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/04/07 20:56:12 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-int		get_next_line(int fd, char **line);
-#endif
+void	*ft_find_key(t_list *dict, void *key, int (*cmp)(void *, void *))
+{
+	t_list	*iter;
+	t_dict	*tmp;
+
+	iter = dict;
+	while (iter)
+	{
+		tmp = iter->content;
+		if (cmp(tmp->key, key) == 0)
+			return (tmp->value);
+		iter = iter->next;
+	}
+	return (NULL);
+}

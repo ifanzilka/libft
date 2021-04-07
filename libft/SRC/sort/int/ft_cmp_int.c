@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_cmp_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 22:23:39 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/02/20 14:08:54 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/04/02 04:09:20 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/04/07 21:21:25 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-int		get_next_line(int fd, char **line);
-#endif
+int	ft_cmp_int(void *a, void *b)
+{
+	return (*(int*)a - *(int*)b);
+}

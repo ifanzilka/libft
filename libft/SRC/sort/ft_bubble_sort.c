@@ -1,17 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_bubble_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 22:23:39 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/02/20 14:08:54 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/03/20 17:23:07 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/04/07 21:16:30 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-int		get_next_line(int fd, char **line);
-#endif
+void	ft_bubble_sort(void *arr, int len, t_arrinfo inf)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = 0;
+		while (j < len - 1)
+		{
+			if (inf.fun_cmp(arr + j * inf.bytes, arr + (j + 1) * inf.bytes) > 0)
+			{
+				inf.fun_swap(arr + (j * inf.bytes), arr + (j + 1) * inf.bytes);
+			}
+			j++;
+		}
+		i++;
+	}
+}

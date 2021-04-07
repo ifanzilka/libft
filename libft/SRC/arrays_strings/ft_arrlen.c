@@ -1,17 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_arrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarilli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 22:23:39 by bmarilli          #+#    #+#             */
-/*   Updated: 2021/02/20 14:08:54 by bmarilli         ###   ########.fr       */
+/*   Created: 2021/03/20 13:51:06 by bmarilli          #+#    #+#             */
+/*   Updated: 2021/03/20 13:51:07 by bmarilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-int		get_next_line(int fd, char **line);
-#endif
+/*
+** ENG
+*/
+
+/*
+** RUS
+**
+** Функция ft_arrlen считет размер char **
+**
+** RETURN
+** возвращает int
+*/
+
+int	ft_arrlen(char **array)
+{
+	int i;
+
+	i = 0;
+	if (array == NULL)
+		return (0);
+	while (array[i] != NULL)
+		i++;
+	return (i);
+}
