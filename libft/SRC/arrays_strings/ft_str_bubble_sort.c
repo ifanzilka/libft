@@ -16,9 +16,7 @@ void	ft_str_bubble_sort(char **array, int len)
 {
 	int		i;
 	int		j;
-	void	*ptr;
 
-	ptr = array;
 	i = 0;
 	j = 0;
 	while (i < len)

@@ -31,9 +31,7 @@ int	ft_append_arr(char *str, char ***array)
 	char	**new_array;
 	char	**old_array;
 	int		size;
-	int		i;
 
-	i = 0;
 	size = ft_arrlen(*array);
 	new_array = malloc(sizeof(char *) * (size + 2));
 	if (new_array == NULL)
