@@ -12,10 +12,15 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define F_NONE \033[37m
+# define RED \033[31m
+# define GREEN \033[32m
+# define CYANE \033[36m
 # define M_ADD 1
 # define M_REMOVE 0
 # include <unistd.h>
 # include <stdlib.h>
+
 
 /*
 ** IS
