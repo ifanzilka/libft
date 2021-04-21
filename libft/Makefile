@@ -101,8 +101,6 @@ OBJS	= $(SRCS:.c=.o)
 
 
 
-
-
 all: $(OBJ_DIR)	$(NAME)
 
 $(NAME):	$(SRCS.O) $(HEADERS)
@@ -114,7 +112,7 @@ $(OBJ_DIR):
 		mkdir  $(addprefix $(OBJ_DIR),$(DIR))
 		mkdir $(addprefix	$(OBJ_DIR), $(MEM_DIR) $(IS_DIR) $(TO_DIR) $(STR_DIR) $(PUT_DIR) \
 						$(NBR_DIR) $(LIST_DIR) $(L_LIST_DIR) $(GNL_DIR) $(MEMORY_DIR) $(DICT_DIR)  $(ARRAY_STRINGS_DIR) $(SORT_DIR) $(DIR_SORT_STR) $(DIR_SORT_INT))
-$(SRCS.O): $(OBJ_DIR)%.o:%.c 
+$(SRCS.O):  $(OBJ_DIR)%.o:%.c  $(HEADERS)
 	$(CC) $(FLAGS) -I$(HEADER) -c $< -o $@
 	@echo "$(F_BLUE)Object files libft in ready! $(F_NONE)"
 
