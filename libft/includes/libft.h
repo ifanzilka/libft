@@ -132,6 +132,11 @@ typedef struct		s_arrinfo
 }					t_arrinfo;
 
 void				ft_bubble_sort(void *arr, int len, t_arrinfo inf);
+void				ft_bubble_sort_back(void *arr, int len, t_arrinfo inf);
+void				ft_insert_sort(void *arr, int len, t_arrinfo inf);
+void				ft_insert_sort_back(void *arr, int len, t_arrinfo inf);
+void				ft_merge_sort(void *arr, int len, t_arrinfo inf);
+void				ft_merge_sort_back(void *arr, int len, t_arrinfo inf);
 
 /*
 ** Str
