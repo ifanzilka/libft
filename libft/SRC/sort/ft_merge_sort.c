@@ -93,11 +93,12 @@ void	ft_merge_sort_back(void *arr, int len, t_arrinfo inf)
 
 void 	ft_merge_two_arr(void *arr1, void *arr2, int len1, int len2 , t_arrinfo inf)
 {
-	int		i;
-	int 	j;
+	int	i;
+	int	j;
 	void 	*arr_new; 
-	int iter = 0;
-
+	int 	iter;
+	
+	iter = 0;
 	arr_new = malloc((len1 + len2) * (inf.bytes));
 	ft_memcpy(arr_new, arr1, (len1 + len2) * (inf.bytes));
 	i = 0;
@@ -136,6 +137,7 @@ void 	ft_merge_two_arr(void *arr1, void *arr2, int len1, int len2 , t_arrinfo in
 		}
 	}
 	ft_memcpy(arr1, arr_new, (len1 + len2) * (inf.bytes));
+	free(arr_new);
 }
 
 void	ft_merge_sort(void *arr, int len, t_arrinfo inf)
