@@ -68,7 +68,7 @@ SRC_ARRAY_STRINGS = $(addprefix $(ARRAY_STRINGS_DIR),ft_arrlen.c ft_print_arr.c 
 DIR_SORT_STR = SRC/sort/str
 DIR_SORT_INT = SRC/sort/int
 SORT_DIR =  $(addprefix $(DIR),sort/)
-SRC_SORT = $(addprefix $(SORT_DIR),ft_bubble_sort.c  ft_insert_sort.c ft_merge_sort.c str/ft_str_cmp.c str/ft_swap_str.c  str/ft_str_init_arrinfo.c \
+SRC_SORT = $(addprefix $(SORT_DIR),ft_bubble_sort.c  ft_insert_sort.c ft_merge_sort.c ft_quick_sort.c str/ft_str_cmp.c str/ft_swap_str.c  str/ft_str_init_arrinfo.c \
 									int/ft_swap_int.c int/ft_cmp_int.c int/ft_int_init_arrinfo.c )
 
 SRCS	= 	$(SRC_MEM)	\

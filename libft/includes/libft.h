@@ -137,6 +137,7 @@ void				ft_insert_sort(void *arr, int len, t_arrinfo inf);
 void				ft_insert_sort_back(void *arr, int len, t_arrinfo inf);
 void				ft_merge_sort(void *arr, int len, t_arrinfo inf);
 void				ft_merge_sort_back(void *arr, int len, t_arrinfo inf);
+void				ft_quick_sort(void *arr, int len, t_arrinfo inf);
 
 /*
 ** Str
