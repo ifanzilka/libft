@@ -36,7 +36,8 @@ int	main()
 	arr[4] = "badf";
 
 	ft_quick_sort(arr, 5, ft_param_str());
-
+	//ft_insert_sort_back(arr, 5, ft_param_str());
+	//ft_merge_sort(arr, 5, ft_param_str());
 	for (int i= 0; i< 5;i++)
 	{
 		printf("s: %s\n",arr[i]);
@@ -55,6 +56,8 @@ int	main()
 		i++;
 	}
 	ft_quick_sort(&c, len2, ft_param_int());
+	//ft_insert_sort(&c, len2, ft_param_int());
+	//ft_merge_sort(&c, len2, ft_param_int());
 	i = 0;
 	printf("\n");
 	while (i < len2)

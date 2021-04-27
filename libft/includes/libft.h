@@ -131,6 +131,7 @@ typedef struct		s_arrinfo
 	void			(*fun_swap)(void*, void*);
 }					t_arrinfo;
 
+void				ft_swap(void *p1, void *p2, int bytes);
 void				ft_bubble_sort(void *arr, int len, t_arrinfo inf);
 void				ft_bubble_sort_back(void *arr, int len, t_arrinfo inf);
 void				ft_insert_sort(void *arr, int len, t_arrinfo inf);

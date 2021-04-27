@@ -36,13 +36,15 @@ static void 	ft_merge_two_arr_back(void *arr1, void *arr2, int len1, int len2 , 
 	{
 		if (inf.fun_cmp(arr1 + i * inf.bytes, arr2 + j * inf.bytes) > 0)
 		{
-			inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr1 + (i * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			i++;
 		}
 		else
 		{
-			inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr2 + (j * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			j++;
 		}
@@ -51,7 +53,8 @@ static void 	ft_merge_two_arr_back(void *arr1, void *arr2, int len1, int len2 , 
 	{
 		while (i < len1)
 		{
-			inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr1 + (i * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			i++;
 		}
@@ -60,7 +63,8 @@ static void 	ft_merge_two_arr_back(void *arr1, void *arr2, int len1, int len2 , 
 	{
 		while (j < len2)
 		{
-			inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr2 + (j * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			j++;
 		}
@@ -107,13 +111,15 @@ void 	ft_merge_two_arr(void *arr1, void *arr2, int len1, int len2 , t_arrinfo in
 	{
 		if (inf.fun_cmp(arr1 + i * inf.bytes, arr2 + j * inf.bytes) < 0)
 		{
-			inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr1 + (i * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			i++;
 		}
 		else
 		{
-			inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr2 + (j * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			j++;
 		}
@@ -122,7 +128,8 @@ void 	ft_merge_two_arr(void *arr1, void *arr2, int len1, int len2 , t_arrinfo in
 	{
 		while (i < len1)
 		{
-			inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr1 + (i * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr1 + i * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			i++;
 		}
@@ -131,7 +138,8 @@ void 	ft_merge_two_arr(void *arr1, void *arr2, int len1, int len2 , t_arrinfo in
 	{
 		while (j < len2)
 		{
-			inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
+			ft_swap(arr2 + (j * inf.bytes), arr_new + iter * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr2 + j * inf.bytes, arr_new + iter * inf.bytes);
 			iter++;
 			j++;
 		}

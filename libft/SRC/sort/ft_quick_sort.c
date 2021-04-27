@@ -80,21 +80,24 @@ void	ft_quick_sort(void *arr, int len, t_arrinfo inf)
 	tmp = left_right.left;
 	while (tmp)
 	{
-		inf.fun_swap(arr_copy + iter * inf.bytes, tmp->content);
+		ft_swap(arr_copy + iter * inf.bytes, tmp->content, inf.bytes);
+		//inf.fun_swap(arr_copy + iter * inf.bytes, tmp->content);
 		tmp = tmp->next;
 		iter++;
 	}
 	tmp = left_right.center;
 	while (tmp)
 	{
-		inf.fun_swap(arr_copy + iter * inf.bytes, tmp->content);
+		ft_swap(arr_copy + iter * inf.bytes, tmp->content, inf.bytes);
+		//inf.fun_swap(arr_copy + iter * inf.bytes, tmp->content);
 		tmp = tmp->next;
 		iter++;
 	}
 	tmp = left_right.right;
 	while (tmp)
 	{
-		inf.fun_swap(arr_copy + iter * inf.bytes, tmp->content);
+		ft_swap(arr_copy + iter * inf.bytes, tmp->content, inf.bytes);
+		//inf.fun_swap(arr_copy + iter * inf.bytes, tmp->content);
 		tmp = tmp->next;
 		iter++;
 	}

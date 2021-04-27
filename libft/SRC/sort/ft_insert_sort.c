@@ -33,7 +33,8 @@ void	ft_insert_sort_back(void *arr, int len, t_arrinfo inf)
 		j = i;
 		while (j > 0 && (inf.fun_cmp(arr + (j - 1) * inf.bytes, arr + j * inf.bytes)) < 0)
 		{
-			inf.fun_swap(arr + (j * inf.bytes), arr + (j - 1) * inf.bytes);
+			ft_swap(arr + (j * inf.bytes), arr + (j - 1) * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr + (j * inf.bytes), arr + (j - 1) * inf.bytes);
 			j--;
 		}
 		i++;
@@ -53,7 +54,8 @@ void	ft_insert_sort(void *arr, int len, t_arrinfo inf)
 		j = i;
 		while (j > 0 && (inf.fun_cmp(arr + (j - 1) * inf.bytes, arr + j * inf.bytes)) > 0)
 		{
-			inf.fun_swap(arr + (j * inf.bytes), arr + (j - 1) * inf.bytes);
+			ft_swap(arr + (j * inf.bytes), arr + (j - 1) * inf.bytes, inf.bytes);
+			//inf.fun_swap(arr + (j * inf.bytes), arr + (j - 1) * inf.bytes);
 			j--;
 		}
 		i++;
