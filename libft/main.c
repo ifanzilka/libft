@@ -13,6 +13,22 @@
 #include <libft.h>
 #include <stdio.h>
 
+int ft_cmp_integer(void *p1, void *p2)
+{
+	int a = *(int *)p1;
+	int b = *(int *)p2;
+
+	return (a - b);
+}
+
+void 	ft_print_num(void *p)
+{
+	int a;
+
+	a = *(int *)p;
+	printf("%d ",a);
+}
+
 int	main()
 {
 
@@ -78,6 +94,43 @@ int	main()
 
 
 	printf("\n");
+
+
+	//tree
+
+	t_btree *btree;
+
+	btree = NULL;
+
+	int num;
+
+	num = 1;
+
+	int num_2 = 2;
+	int num_3 = 3;
+	int num_4 = 4;
+	int num_5 = 5;
+	int num_6 = 12;
+	int num_7 = 7;
+	int num_8 = 8;
+	int num_9 = 9;
+	btree_insert_data(&btree, &num, ft_cmp_integer);
+	btree_insert_data(&btree, &num_2, ft_cmp_integer);
+	btree_insert_data(&btree, &num_3, ft_cmp_integer);
+	btree_insert_data(&btree, &num_4, ft_cmp_integer);
+	btree_insert_data(&btree, &num_5, ft_cmp_integer);
+	btree_insert_data(&btree, &num_6, ft_cmp_integer);
+	btree_insert_data(&btree, &num_7, ft_cmp_integer);
+	btree_insert_data(&btree, &num_8, ft_cmp_integer);
+	btree_insert_data(&btree, &num_9, ft_cmp_integer);
+
+	btree_apply_infix(btree, ft_print_num);
+	printf("\n");
+	btree_apply_prefix(btree, ft_print_num);
+	printf("\n");
+	btree_apply_suffix(btree, ft_print_num);
+
+
 	// int o = -100;
 
 	// while (o < 100)

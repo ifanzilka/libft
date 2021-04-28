@@ -65,6 +65,9 @@ SRC_DICT = $(addprefix $(DICT_DIR),ft_cr_dict.c ft_find_key.c)
 ARRAY_STRINGS_DIR =  $(addprefix $(DIR),arrays_strings/)
 SRC_ARRAY_STRINGS = $(addprefix $(ARRAY_STRINGS_DIR),ft_arrlen.c ft_print_arr.c ft_append_arr.c ft_copy_arr.c ft_free_arr.c   ft_str_bubble_sort.c   ft_del_str_ind.c ft_find_str_in_arr.c)
 
+DIR_BTREE = $(addprefix $(DIR),btree/)
+SRC_BTREE = $(addprefix $(DIR_BTREE),btree_create_node.c btree_apply_prefix.c btree_apply_infix.c btree_apply_suffix.c  btree_insert_data.c  )
+
 DIR_SORT_STR = SRC/sort/str
 DIR_SORT_INT = SRC/sort/int
 SORT_DIR =  $(addprefix $(DIR),sort/)
@@ -79,6 +82,7 @@ SRCS	= 	$(SRC_MEM)	\
 			$(SRC_NBR)	\
 			$(SRC_LIST)	\
 			$(SRC_L_LIST)\
+			$(SRC_BTREE)\
 			$(SRC_GNL)	\
 			$(SRC_DICT)\
 			$(SRC_MEMORY)\
@@ -111,7 +115,7 @@ $(OBJ_DIR):
 		mkdir $(OBJ_DIR)
 		mkdir  $(addprefix $(OBJ_DIR),$(DIR))
 		mkdir $(addprefix	$(OBJ_DIR), $(MEM_DIR) $(IS_DIR) $(TO_DIR) $(STR_DIR) $(PUT_DIR) \
-						$(NBR_DIR) $(LIST_DIR) $(L_LIST_DIR) $(GNL_DIR) $(MEMORY_DIR) $(DICT_DIR)  $(ARRAY_STRINGS_DIR) $(SORT_DIR) $(DIR_SORT_STR) $(DIR_SORT_INT))
+						$(NBR_DIR) $(LIST_DIR) $(L_LIST_DIR) $(DIR_BTREE) $(GNL_DIR) $(MEMORY_DIR) $(DICT_DIR)  $(ARRAY_STRINGS_DIR) $(SORT_DIR) $(DIR_SORT_STR) $(DIR_SORT_INT))
 
 
 # 	обьектные файлы зависят от такоего же файла только .c  и от хейдера					
