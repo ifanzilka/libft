@@ -96,11 +96,10 @@ F_NONE		= \033[37m
 F_BOLD		= \033[1m
 F_RED		= \033[31m
 F_ORANGE	= \033[38m
-F_YELLOW	= \033[33m
+F_YELLOW	= \033[0;33m
 F_GREEN		= \033[32m
 F_CYAN		= \033[36m
 F_BLUE		= \033[34m 
-
 OBJS	= $(SRCS:.c=.o)
 
 
