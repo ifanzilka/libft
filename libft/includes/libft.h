@@ -12,6 +12,12 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+
+# ifdef __cplusplus
+extern "C" {
+#endif	
+
 # define F_NONE "\033[37m"
 # define RED "\033[31m"
 # define GREEN "\033[32m"
@@ -244,4 +250,9 @@ void				btree_apply_prefix(t_btree *root, void (*applyf)(void *));
 void				btree_apply_infix(t_btree *root, void (*applyf)(void *));
 void				btree_apply_suffix(t_btree *root, void (*applyf)(void *));
 void				btree_insert_data(t_btree **root, void *item, int (*cmp)(void*, void*));
+
+# ifdef __cplusplus
+}
+#endif
+
 #endif
