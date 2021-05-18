@@ -18,10 +18,16 @@
 extern "C" {
 #endif	
 
+	
+#ifndef COLOR
+	
 # define F_NONE "\033[37m"
 # define RED "\033[31m"
 # define GREEN "\033[32m"
 # define CYANE "\033[36m"
+
+#endif
+	
 # define M_ADD 1
 # define M_REMOVE 0
 # include <unistd.h>
