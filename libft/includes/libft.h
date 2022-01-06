@@ -26,18 +26,15 @@ extern "C" {
 # define RED		"\033[31m"
 # define GREEN		"\033[32m"
 # define CYANE		"\033[36m"
-# define F_BOLD		"\033[1m"
-# define F_ORANGE	"\033[38m"
-# define F_YELLOW	"\033[0;33m"
-# define F_BLUE		"\033[34m" 
+# define WHITE		"\033[1m"
+# define YELLOW	    "\033[0;33m"
+# define BLUE		"\033[34m" 
+# define PURPLE     "\033[0;35m"
 
-# define NCLR        "\033[0m"
-# define BLACK       "\033[0;30m"
-# define WHITE       "\033[0;37m"
-# define YELLOW      "\033[0;33m"
-# define CYAN        "\033[0;36m"
-# define BLUE        "\033[0;34m"
-# define PURPLE      "\033[0;35m"
+/* 
+** Bold font  
+** param [1; in range [1, 4]
+*/
 # define B_GRAY      "\033[1;30m"
 # define B_WHITE     "\033[1;37m"
 # define B_RED       "\033[1;31m"
@@ -46,7 +43,6 @@ extern "C" {
 # define B_CYAN      "\033[1;36m"
 # define B_BLUE      "\033[1;34m"
 # define B_PURPLE    "\033[1;35m"
-
 
 #endif
 	
